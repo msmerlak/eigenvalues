@@ -40,8 +40,8 @@ tic
 if nargin < 2, error('AndAcc requires at least two arguments.'); end
 if nargin < 3, mMax = min(10, size(x,1)); end
 if nargin < 4, itmax = 1000; end
-if nargin < 5, atol = 1.e-10; end
-if nargin < 6, rtol = 1.e-10; end
+if nargin < 5, atol = 100*eps(class(gather(x))); end
+if nargin < 6, rtol = 100*eps(class(gather(x))); end
 if nargin < 7, droptol = 1.e10; end
 if nargin < 8, beta = 1; end
 if nargin < 9, AAstart = 0; end

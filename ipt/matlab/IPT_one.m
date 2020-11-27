@@ -2,9 +2,9 @@ function [ev, eVector] = IPT_one(M, m)
 
 tic
 
-precision = 10*eps;
+precision = 100*eps(class(gather(M)));
 
-n  = size(M,1);
+n  = size(M, 1);
 v = zeros(n, 1);
 v(m) = 1;
 
@@ -23,7 +23,7 @@ else
     Theta(~isfinite(Theta))=0;
 end
 
-Delta = offDiag(M);
+Delta = M - diag(diag(M));
 
 
 error = 1;

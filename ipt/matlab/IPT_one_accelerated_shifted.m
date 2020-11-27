@@ -2,7 +2,7 @@ function [ev, eVector] = IPT_one_accelerated_shifted(M, m, mMax, l, device)
 
 n  = size(M,1);
 
-    
+
 
 if issparse(M)
     id = speye(n);
@@ -25,7 +25,7 @@ Delta = M - diag(diag(M));
 Delta(:, m) = Delta(:, m) - L;
 
 if strcmp(device, 'cuda')
-    v = fixed_point(@(w) F(w, gpuArray(Theta), gpuArray(Delta), m), gpuArra(v0), mMax, 5000);
+    v = fixed_point(@(w) F(w, gpuArray(Theta), gpuArray(Delta), m), gpuArray(v0), mMax, 5000);
 else
     v = fixed_point(@(w) F(w, Theta, Delta, m), v0, mMax, 5000);
 end
