@@ -3,7 +3,6 @@ function [ev, eVector] = IPT_one_accelerated_shifted(M, m, mMax, l, device)
 n  = size(M,1);
 
 
-
 if issparse(M)
     id = speye(n);
 else
